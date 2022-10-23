@@ -88,12 +88,19 @@
                         </a>
 
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item dropdown dropdown-full-width">
                         <a class="nav-link text-gigas"  href="{% url 'my_course' %}">
                             My Courses
                         </a>
-
                     </li>
+                    {% else %}
+                    <li class="nav-item dropdown dropdown-full-width">
+                        <a class="nav-link text-gigas"  href="{% url 'register' %}">
+                            My Courses
+                        </a>
+                    </li>
+                    {% endif %}
                      {% if user.is_authenticated and user.first_name == '' %}
                      <li class="nav-item dropdown border-0 px-1 px-md-3">
                          <a class="nav-link dropdown-toggle" id="user" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">

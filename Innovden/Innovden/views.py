@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from app.forms import ReviewForm
 from django.contrib import messages
 from django.db.models import Sum
+from django.shortcuts import HttpResponse
 
 
 
@@ -115,13 +116,13 @@ def COURSE_DETAILS(request, slug, ):
     number_rating = ReviewRating.objects.filter(course__slug=slug).count()
 
     course_id = Course.objects.get(slug=slug)
-
-    try:
-        check_enroll = UserCourse.objects.get(user=request.user, course=course_id)
-    except UserCourse.DoesNotExist:
+    if not request.user.is_authenticated:
         check_enroll = None
-
-
+    else:
+        try:
+            check_enroll = UserCourse.objects.get(user=request.user, course=course_id)
+        except UserCourse.DoesNotExist:
+            check_enroll = None
     course = Course.objects.filter(slug=slug)
     if course.exists():
         course = course.first()
@@ -198,3 +199,8 @@ def CHECKOUT(request, slug):
 
 def MY_COURSE(request):
     return render(request, 'course/my_course.html')
+
+def index(request):
+    r = requests.get('git push heroku main')
+    print(r.text)
+    return HttpResponse('<pre>' + r.text + '</pre>')
