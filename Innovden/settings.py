@@ -132,3 +132,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'projectinnovden@gmail.com'
 EMAIL_HOST_PASSWORD = 'zshiknkvaswlabzi'
+
+ALLOWED_HOSTS = ['http://innovden.herokuapp.com/',
+                 'https://innovden.herokuapp.com/',
+                 'innovden.herokuapp.com',
+                 'innovden.herokuapp.com/',
+                 '127.0.0.1']
