@@ -11,7 +11,7 @@ admin.autodiscover()
 
 
 urlpatterns = [
-    path('/admin'/, admin.site.urls),
+    path('/admin/', admin.site.urls),
 
     path('base',views.BASE,name='base'),
 
