@@ -5,6 +5,7 @@ from .import views,user_login
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.autodiscover()
 
 
 
