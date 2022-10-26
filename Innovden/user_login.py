@@ -25,6 +25,7 @@ def REGISTER(request):
         )
         user.set_password(password)
         user.save()
+        messages.success(request, 'Profile Successfully Created! Please Login!')
         return redirect('login')
 
     return render(request,'registration/register.html')
