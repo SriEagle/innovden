@@ -1,1 +1,1 @@
-web: gunicorn innovden.wgsi.py
+web: gunicorn Innovden.wgsi.py
