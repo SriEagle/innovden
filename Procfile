@@ -1,1 +1,3 @@
-web: gunicorn Innovden.Innovden.wgsi
+web: gunicorn Innovden.Innovden.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
