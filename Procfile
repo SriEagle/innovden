@@ -1,1 +1,1 @@
-web: gunicorn Innovden.wsgi.py
+web gunicorn Innovden.wsgi:application --log-file - --log-level debug
